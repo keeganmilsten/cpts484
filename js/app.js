@@ -31,3 +31,23 @@ if (speech == true) {
 	recognition.start(); 
 	recognition.addEventListener('end', recognition.start); 
 }
+
+// Set Cookie
+function setCookie(name, value) {
+	let cookie = name + "=" + encodeURIComponent(value);
+	document.cookie = cookie;
+}
+
+// Get Cookie
+function getCookie(name) {
+	let cookieArray = document.cookie.split(";");
+	
+	for(let i = 0; i < cookieArray.length; i++) {
+		var cookiePair = cookieArray[i].split("=");
+		if(name == cookiePair[0].trim()) {
+			// Decode the cookie value and return
+			return decodeURIComponent(cookiePair[1]);
+		}
+	}
+	return null;
+}
