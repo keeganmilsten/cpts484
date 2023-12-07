@@ -24,6 +24,19 @@
     <br>
     TESTING
   </p>
+
+  <h1>Click the button to call</h1>
+    <!-- Button to initiate the phone call -->
+    <button onclick="makeCall()">Call</button>
+
+  <script>
+      function makeCall() {
+          const phoneNumber = '5096370558';
+
+          // Use the 'tel:' protocol to initiate the phone call
+          window.location.href = 'tel:' + phoneNumber;
+      }
+  </script>
   
   <script>
       if (navigator.serviceWorker) {
