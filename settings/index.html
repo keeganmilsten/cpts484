@@ -24,7 +24,7 @@
       </label>
       
       <div class="spacer"/>
-      <div class="field"><input type="text" placeholder="Emergency Phrase" id="emergencyPhrase" onclick='changePhrase(this, this.value);' />
+      <div class="field"><input type="text" placeholder="Emergency Phrase" id="emergencyPhrase" onchange='changePhrase(this, this.value);' />
     </div>
   
   <script>
@@ -66,6 +66,7 @@
           if (count == 2) {
               document.getElementById("emergencyPhrase").value = newPhrase;
           }
+          console.log(newPhrase);
           setCookie("emergencyPhrase", document.getElementById("emergencyPhrase").value);
       }
       
