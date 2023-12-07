@@ -159,11 +159,7 @@
     }
 
     // Set initial spoken text here
-    tts.text = "What can I help you with?";
-    
-    // Update text
-    const words = document.querySelector('.words'); 
-    words.appendChild(p);
+    tts.text = "Say, 'destination', to get directions. And don't forget to go to settings to set your emergency phrase!";
 
     
     let count = 0;
@@ -179,8 +175,15 @@
           console.log(transcript);
       }
       
+      if (transcript.includes(getCookie("emergencyPhrase"))) {
+          tts.text = "Calling an emergency number."
+          window.speechSynthesis.speak(tts);
+          makeCall();
+      }
+      
       // Speak the text
       if (transcript.includes('help')) {
+          tts.text = "Say, 'destination', to get directions. And don't forget to go to settings to set your emergency phrase!";
           window.speechSynthesis.speak(tts);
           console.log(transcript);
       }
@@ -188,12 +191,12 @@
       // Speak the text
       if (count == 0 && transcript.includes('destination')) {
           tts.text = "Please speak the destination address or location. When complete, say 'done'";
-          window.speechSynthesis(tts);
+          window.speechSynthesis.speak(tts);
           count = 1;
       }
       if (count == 1 && transcript.includes('done')) {
           tts.text = "Destination set. Please wait while I calculate the route.";
-          window.speechSynthesis(tts);
+          window.speechSynthesis.speak(tts);
 
           var dest = transcript.slice(0, -5); // Case-insensitive whole word match
           destinationInfo.text = dest
