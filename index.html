@@ -197,13 +197,13 @@
       
       // Speak the text
       if (count == 0 && transcript.includes('destination')) {
-          // tts.text = "Please speak the destination address or location.";
-          // window.speechSynthesis(tts);
+          tts.text = "Please speak the destination address or location. When complete, say 'done'";
+          window.speechSynthesis(tts);
           count = 1;
       }
       if (count == 1 && transcript.includes('done')) {
-          // tts.text = "Destination set. Please wait while I calculate the route.";
-          // window.speechSynthesis(tts);
+          tts.text = "Destination set. Please wait while I calculate the route.";
+          window.speechSynthesis(tts);
 
           var dest = transcript.slice(0, -5); // Case-insensitive whole word match
           destinationInfo.text = dest
