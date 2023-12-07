@@ -43,35 +43,6 @@
   <div class="words" contenteditable> 
       <p id="p"></p> 
   </div>
-  
-  <script>
-      // Set initial spoken text here
-      tts.text = "What can I help you with?";
-      
-      // Update text
-      const words = document.querySelector('.words'); 
-      words.appendChild(p);
-      
-      // Actions based on spoken word for this screen
-      recognition.addEventListener('result', e => { 
-          const transcript = Array.from(e.results) 
-          .map(result => result[0]) 
-          .map(result => result.transcript) 
-          .join('')
-          
-          // Print the text
-          if (transcript.includes('hello')) {
-              document.getElementById("p").innerHTML = transcript;
-              console.log(transcript);
-          }
-          
-          // Speak the text
-          if (transcript.includes('help')) {
-              window.speechSynthesis.speak(tts);
-              console.log(transcript);
-          }
-      });
-  </script> 
 
   <div id="map" style="height: 400px;"></div>
   <button onclick="refreshMap()">Refresh Map</button>
@@ -187,6 +158,14 @@
       });
     }
 
+    // Set initial spoken text here
+    tts.text = "What can I help you with?";
+    
+    // Update text
+    const words = document.querySelector('.words'); 
+    words.appendChild(p);
+
+    
     let count = 0;
     recognition.addEventListener('result', e => { 
       const transcript = Array.from(e.results) 
@@ -194,6 +173,17 @@
           .map(result => result.transcript) 
           .join('');
       
+      // Print the text
+      if (transcript.includes('hello')) {
+          document.getElementById("p").innerHTML = transcript;
+          console.log(transcript);
+      }
+      
+      // Speak the text
+      if (transcript.includes('help')) {
+          window.speechSynthesis.speak(tts);
+          console.log(transcript);
+      }
       
       // Speak the text
       if (count == 0 && transcript.includes('destination')) {
