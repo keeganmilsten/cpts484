@@ -44,6 +44,32 @@
   </div>
   
   <script>
+      // Set initial settings values
+      document.getElementById("emergencyPhrase").value = getCookie("emergencyPhrase");
+      if (getCookie("units") == "true") {
+          document.getElementById("measurementToggle").checked = true;
+      }
+      else {
+          document.getElementById("measurementToggle").checked = false;
+      }
+      
+      function toggleChange(checkbox) {
+          if (count == 1) {
+              document.getElementById("measurementToggle").checked = !document.getElementById("measurementToggle").checked;
+          }
+          setCookie("units", document.getElementById("measurementToggle").checked);
+          console.log(document.getElementById("measurementToggle").checked);
+          console.log(getCookie("units"));
+      }
+      
+      function changePhrase(textbox, newPhrase) {
+          if (count == 2) {
+              document.getElementById("emergencyPhrase").value = newPhrase;
+          }
+          console.log(newPhrase);
+          setCookie("emergencyPhrase", document.getElementById("emergencyPhrase").value);
+      }
+      
       // Set variables
       let count = 0;
       // Set initial spoken text here
