@@ -2,7 +2,9 @@
 1. Use this in Chrome
 2. Add "https://keeganmilsten.github.io/cpts484/" to `Allowed to play sound` in [Chrome's Sound Settings]("chrome://settings/content/sound").
 
-# Github page as a PWA template
+
+# Guide to Using Github Pages to Create a PWA:
+## Github page as a PWA template
 
 This is a bare-bones example on how to turn an `index.html` document on GitHub and hosted as a GitHub Page into an installable Progressive Web App with offline caching.
 
@@ -16,7 +18,7 @@ This means that this app is now available at https://codepo8.github.io/simple-to
 
 This here is a template repository that does not only publish the page, but also offers it as an installable app and shows the page when the user is offline.
 
-## Changing the index.html
+### Changing the index.html
 
 The first thing you need to do change is the `index.html` document. You need two things for this. Your GitHub username, for example in this case `codepo8` and the name of the repository you host as a GitHub Page, in this case `github-page-pwa`.
 
@@ -49,7 +51,7 @@ In the following example, each `codepo8` needs to become yours and `github-page-
 </html>
 ```
 
-## Changing the service worker to make your site available offline
+### Changing the service worker to make your site available offline
 
 The `sw.js` file is the ServiceWorker that defines which of the files in your application should become available offline. Again you need to change some settings to your needs.
 
@@ -79,7 +81,7 @@ var URLS = [
 
 Next, you may want to make this page installable as an app.
 
-## Changing the manifest to make your app installable
+### Changing the manifest to make your app installable
 
 The `manifest.webmanifest` file defines the name and look of the GitHub Page as an installable application. You need to change the names, description, URLs and link to the icon of the application to your needs. I added comments here as to what is what.
 
